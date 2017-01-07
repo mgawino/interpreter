@@ -1,0 +1,8 @@
+function x(c : int, function foo(s : int, p : bool) : int) : int;
+var fo : bool;
+begin
+end;
+
+begin
+    x = 5;
+end.

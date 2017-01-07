@@ -1,0 +1,8 @@
+var x : int;
+
+function x(x : int) : int;
+begin
+end;
+
+begin
+end.

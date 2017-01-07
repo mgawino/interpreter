@@ -1,0 +1,51 @@
+function init_array(var a : array of int, n : int, function init(x : int) : int) : int;
+var i : int;
+begin
+    while i < n do
+    begin
+        a[i] = init(i);
+        i++;
+    end;
+end;
+
+function quicksort(var tab : array of int, left : int, right : int) : int;
+var i : int;
+var j : int;
+var x : int;
+var temp : int;
+begin
+    i = left;
+    j = right;
+    x = tab[(left + right) / 2];
+    do
+    begin
+        while tab[i] < x do i++;
+        while tab[j] > x do j--;
+        if i <= j then
+        begin
+            temp = tab[i]; tab[i] = tab[j]; tab[j] = temp;
+            i++;
+            j--;
+        end;
+    end
+    while i <= j;
+    if left < j then quicksort(tab, left, j);
+    if right > i then quicksort(tab, i, right);
+end;
+
+function print_array(tab : array of int, n : int) : int;
+var i : int;
+begin
+    for i = 0 to n-1 do
+        print tab[i];
+    println;
+end;
+
+var numbers : array [20] of int;
+var i : int;
+begin
+    init_array(numbers, 20, function (x : int) : int; (-1)^x*x);
+    print_array(numbers, 20);
+    quicksort(numbers, 0, 19);
+    print_array(numbers, 20);
+end.

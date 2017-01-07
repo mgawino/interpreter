@@ -1,0 +1,7 @@
+var i : int;
+var a : array [10] of int;
+
+begin
+	for i = 0 to 10 do
+		print a[i];
+end.

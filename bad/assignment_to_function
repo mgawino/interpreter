@@ -1,0 +1,12 @@
+function f(x : int) : int;
+    function h(x : int) : int;
+    begin
+        h = 5;
+    end;
+begin
+    f =h(4) + 5;
+end;
+
+begin
+    print f(4);
+end.

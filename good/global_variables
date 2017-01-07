@@ -1,0 +1,21 @@
+var x : int;
+
+function foo() : int;
+    var x : int;
+    function foo1() : int;
+    begin
+        x = 5;
+        print x;
+    end;
+begin
+    foo1();
+end;
+
+begin
+    x = 100;
+    foo();
+    print x;
+    x = 200;
+    foo();
+    print x;
+end.

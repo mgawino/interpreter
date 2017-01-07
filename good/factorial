@@ -1,0 +1,18 @@
+function silnia(n:int) : int;
+begin
+    if (n == 1) or (n == 0) then
+        silnia = 1
+    else
+        silnia = silnia(n-1)*n;
+end;
+
+var i : int;
+
+begin
+    while i < 15 do
+    begin
+        print silnia(i);
+        println;
+        i++;
+    end;
+end.

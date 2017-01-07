@@ -1,0 +1,9 @@
+var x : int;
+var b : bool;
+
+begin
+    if x == 1 then
+        b = x
+    else
+       x = 10;
+end.

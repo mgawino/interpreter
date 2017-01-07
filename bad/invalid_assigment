@@ -1,0 +1,5 @@
+var x : int;
+var a : array [10] of int;
+begin
+    x = a;
+end.

@@ -1,0 +1,9 @@
+function foo(x : int, 
+    function aaa(x : int, 
+        function aaa(x : int, y : int, y : int) : int
+    ) : int, y : bool) : int;
+begin
+end;
+
+begin
+end.

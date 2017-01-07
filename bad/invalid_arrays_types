@@ -1,0 +1,22 @@
+var a : array [10] of int;
+var b : array [5] of bool;
+var b1 : bool;
+var a1 : int;
+
+function ref(var a : array of int,var b : array of bool) : int;
+begin
+    a[1] = 1;
+    b[1] = False;
+end;
+
+function val(a : array of int, b : array of bool) : bool;
+begin
+    a[1] = 1;
+    b[1] = False;
+end;
+
+begin
+    ref(a,a);
+    print a[1];
+    print b[1];
+end.

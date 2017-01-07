@@ -1,0 +1,82 @@
+Prog.		Program ::= DeclarationsBlock StatementsBlock "." ;
+
+DecBlock.	DeclarationsBlock ::= [Declaration] ;
+VarDec.		Declaration ::= "var" Ident ":" Type ;
+
+FunDec.		Declaration ::= FunctionHeader ";" DeclarationsBlock StatementsBlock ;
+FunHead.	FunctionHeader ::= "function" Ident Arguments ":" SimpleType ;
+
+Args.		Arguments ::= "(" [Argument] ")" ;
+ValArg.		Argument ::= Ident ":" GenType ;
+RefArg.		Argument ::= "var" Ident ":" GenType ;
+FunArg.		Argument ::= FunctionHeader ;
+
+StmBlock.	StatementsBlock ::= "begin" [Statement] "end";
+SBlock.		Statement ::= "begin" [Statement] "end";
+SWhile.		Statement ::= "while" Exp "do" Statement;
+SDoWhile.	Statement ::= "do" Statement "while" Exp ;
+SFor.		Statement ::= "for" Ident "=" Exp "to" Exp "do" Statement ;
+SIf.		Statement ::= "if" Exp "then" Statement ;
+SIfElse.	Statement ::= "if" Exp "then" Statement "else" Statement;
+SAssign.	Statement ::= Variable "=" Exp ;
+SPlusA.		Statement ::= Variable "+=" Exp ;
+SMinusA.	Statement ::= Variable "-=" Exp ;
+SMulA.		Statement ::= Variable "*=" Exp ;
+SDivA.		Statement ::= Variable "/=" Exp ;
+SFunCall.	Statement ::= Ident "(" CallArguments ")" ;
+SPrint.		Statement ::= "print" Exp ;
+SPrintln.	Statement ::= "println" ;
+SExp.		Statement ::= Exp ;
+
+Var.		Variable ::= Ident ;
+ArrayVar.	Variable ::= Ident "[" Exp "]" ;
+
+CallArgs.		CallArguments ::= [CallArgument] ;
+ExpArg.			CallArgument ::= Exp ;
+AnonFun.		CallArgument ::= AnonymousFunctionHeader ";" Exp ;
+AnonFunHead.	AnonymousFunctionHeader ::= "function" Arguments ":" SimpleType ;
+
+EGe.		Exp ::= Exp1 ">" Exp1 ;
+EGeq.		Exp ::= Exp1 ">=" Exp1 ;
+ELe.		Exp ::= Exp1 "<" Exp1 ;
+ELeq.		Exp ::= Exp1 "<=" Exp1 ;
+EEq.		Exp ::= Exp1 "==" Exp1 ;
+ENotEq.		Exp ::= Exp1 "!=" Exp1 ;
+
+EPlus.		Exp1 ::= Exp1 "+" Exp2 ;
+EMinus.		Exp1 ::= Exp1 "-" Exp2 ;
+EOr.		Exp1 ::= Exp1 "or" Exp2 ;
+
+EMul.		Exp2 ::= Exp2 "*" Exp3 ;
+EDiv.		Exp2 ::= Exp2 "/" Exp3 ;
+EAnd.		Exp2 ::= Exp2 "and" Exp3 ;
+EPow.		Exp2 ::= Exp2 "^" Exp3 ;
+
+ENot.		Exp3 ::= "not" Exp3 ;
+ENeg.		Exp3 ::= "-" Exp3 ;
+EInc.		Exp3 ::= Variable "++" ;
+EDec.		Exp3 ::= Variable "--" ;
+EConst.		Exp3 ::= Const ;
+EVar.		Exp3 ::= Variable ;
+EFunCall.   Exp3 ::= Ident "(" CallArguments ")" ;
+
+BTrue.		Const ::= "True" ;
+BFalse. 	Const ::= "False" ;
+IConst.		Const ::= Integer ;
+
+TInt.		SimpleType ::= "int" ;
+TBool.		SimpleType ::= "bool" ;
+
+SType.		Type ::= SimpleType ;
+AType.		Type ::= "array" "[" Integer "]" "of" SimpleType ;
+
+GSType.		GenType ::= SimpleType ;
+GAType.		GenType ::= "array" "of" SimpleType ;
+
+coercions Exp 3 ;
+
+separator Argument "," ;
+separator CallArgument "," ;
+
+terminator Declaration ";" ;
+terminator Statement ";" ;

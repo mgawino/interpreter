@@ -1,0 +1,13 @@
+function a(x : int, y : bool) : bool;
+begin
+end;
+
+function foo(x : int, function a(x : int, y : bool) : bool) : int;
+begin
+
+end;
+
+begin
+    foo(5, a);
+    foo(1, function (c : int, h : bool) : bool; h == True);
+end.

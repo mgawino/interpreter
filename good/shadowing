@@ -1,0 +1,25 @@
+var x : int;
+
+function f(x : int) : int;
+    function h() : int;
+    begin
+        print x;
+        print 1;
+    end;
+    function g(x : int) : int;
+    begin
+        x = 2;
+        h();
+        print x;
+    end;
+begin
+    x = 1;
+    g(x);
+end;
+
+begin
+    x = 3;
+    f(x);
+    print x;
+    print 3;
+end.

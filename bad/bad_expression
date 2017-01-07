@@ -1,0 +1,6 @@
+var i : int;
+var b : bool;
+
+begin
+    i = b*b*b*b;
+end.
