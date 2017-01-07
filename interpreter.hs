@@ -16,21 +16,21 @@ import ErrM
 
 main :: IO ()
 main = do
-	args <- getArgs
-	if length args == 0 then
-		error "File not specified"
-	else
-		do
-			s <- readFile (args !! 0)
-			case pProgram (myLexer s) of
-				Ok p ->
-					do
-						(res,_) <- (runStaticAnalysis p)
-						case res of
-							(Left err) -> hPutStrLn stderr err
-							(Right _) -> do
-											(res, _) <- (runEvalProgram p)
-											case res of 
-												(Left err) -> hPutStrLn stderr err
-												(Right msg) -> putStrLn "OK"
-				Bad e -> hPutStrLn stderr e
+    args <- getArgs
+    if length args == 0 then
+        error "File not specified"
+    else
+        do
+            s <- readFile (args !! 0)
+            case pProgram (myLexer s) of
+                Ok p ->
+                    do
+                        (res,_) <- (runStaticAnalysis p)
+                        case res of
+                            (Left err) -> hPutStrLn stderr err
+                            (Right _) -> do
+                                            (res, _) <- (runEvalProgram p)
+                                            case res of 
+                                                (Left err) -> hPutStrLn stderr err
+                                                (Right msg) -> putStrLn "OK"
+                Bad e -> hPutStrLn stderr e
